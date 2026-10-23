@@ -161,7 +161,7 @@ Generated Email
 ## Clone Repository
 
 ```bash
-git clone https://github.com/your-RajSumanSingh/ai-email-generator.git
+git clone https://github.com/backpropbrigade-dev/Mail-Craft-AI.git
 ```
 
 ## Frontend
@@ -264,12 +264,3 @@ During this project I gained hands-on experience with:
 - ⏳ Email Sharing Options
 - ⏳ Deployment on Vercel & Render
 
----
-
-# 👨‍💻 Author
-
-**RAJ SUMAN SINGH**
-
-B.Tech – Data Science (AI & ML)
-
-Built with ❤️ using React, FastAPI, TypeScript, Tailwind CSS, and Groq AI.
