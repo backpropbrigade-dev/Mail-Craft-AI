@@ -1,0 +1,336 @@
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  width: 100%;
+  height: 100vh;
+
+  background: #0b0b0b;
+  color: #f4f1ea;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+}
+
+/* -------------------------------- */
+/* Background grid */
+/* -------------------------------- */
+
+.splash-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  pointer-events: none;
+}
+
+/* Subtle orange ambient glow */
+
+.splash-screen::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: rgba(196, 106, 58, 0.08);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+/* -------------------------------- */
+/* Main content */
+/* -------------------------------- */
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(90%, 560px);
+
+  text-align: center;
+}
+
+/* -------------------------------- */
+/* Brand label */
+/* -------------------------------- */
+
+.splash-brand {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.splash-line {
+  width: 36px;
+  height: 1px;
+
+  background: #c46a3a;
+}
+
+.splash-label {
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* -------------------------------- */
+/* Logo */
+/* -------------------------------- */
+
+.splash-content h1 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+
+  font-weight: 500;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+
+  color: #f4f1ea;
+
+  animation: fadeInUp 0.9s ease forwards;
+}
+
+/* -------------------------------- */
+/* Subtitle */
+/* -------------------------------- */
+
+.splash-subtitle {
+  margin-top: 16px;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* -------------------------------- */
+/* Loading area */
+/* -------------------------------- */
+
+.splash-loading {
+  width: min(100%, 430px);
+
+  margin: 55px auto 0;
+
+  animation: fadeIn 1.1s ease forwards;
+}
+
+/* Progress background */
+
+.progress-container {
+  width: 100%;
+  height: 2px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Progress */
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+
+  background: #c46a3a;
+
+  animation: loading 2.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Loading information */
+
+.loading-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 16px;
+}
+
+.loading-text {
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  animation: pulseText 1.4s ease-in-out infinite;
+}
+
+.loading-status {
+  font-size: 9px;
+
+  letter-spacing: 0.2em;
+
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------------------- */
+/* Footer */
+/* -------------------------------- */
+
+.splash-footer {
+  position: absolute;
+
+  left: 40px;
+  right: 40px;
+  bottom: 28px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 16px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  font-size: 9px;
+
+  letter-spacing: 0.25em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------------------- */
+/* Animations */
+/* -------------------------------- */
+
+@keyframes loading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseText {
+  0% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0.35;
+  }
+}
+
+.fade-out {
+  animation: fadeOutScreen 0.6s ease forwards;
+}
+
+@keyframes fadeOutScreen {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.015);
+  }
+}
+
+/* -------------------------------- */
+/* Mobile */
+/* -------------------------------- */
+
+@media (max-width: 640px) {
+  .splash-content h1 {
+    font-size: clamp(3rem, 18vw, 5rem);
+  }
+
+  .splash-loading {
+    width: 85%;
+    margin-top: 45px;
+  }
+
+  .splash-footer {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+
+    font-size: 8px;
+  }
+}
